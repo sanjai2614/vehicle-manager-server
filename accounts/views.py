@@ -53,7 +53,7 @@ def login(req):
 
     if user is None:
         return Response(
-            {"success": False, "message": "Invalid username or password"},
+            {"success": False, "message": "Invalid email or password"},
             status=status.HTTP_401_UNAUTHORIZED,
         )
 
