@@ -9,7 +9,7 @@ from accounts.permissions import IsAdminRole
 from drivers.models import Driver
 from drivers.serializers import DriverSerializer
 
-
+# get all users
 @api_view(["GET"])
 @permission_classes([IsAuthenticated, IsAdminRole])
 def get_users(req):
@@ -34,7 +34,7 @@ def get_users(req):
 
     return Response({"success": True, "data": data}, status=status.HTTP_200_OK)
 
-
+# update driver status
 @api_view(["PATCH"])
 @permission_classes([IsAuthenticated, IsAdminRole])
 def update_user_status(req, pk):

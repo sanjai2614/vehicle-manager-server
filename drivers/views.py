@@ -19,6 +19,7 @@ def create_driver(req):
 
     image = req.FILES.get("profile_avatar")
 
+    # if driver has avatar image
     if image:
         try:
             result = upload_driver_avatar(image)
@@ -58,6 +59,7 @@ def create_driver(req):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
+    # save without avatar
     serializer = DriverSerializer(data=data)
 
     if serializer.is_valid():
@@ -134,6 +136,7 @@ def update_driver(req, pk):
 
     new_public_id = None
 
+    # if update field has avatar image
     if image:
         try:
             result = upload_driver_avatar(image)
